@@ -5,6 +5,8 @@ services:
     build: './'
     network_mode: host
     image: makeomatic/dante
+    ports:
+      - "1080:1080"
     environment:
       - SOCKS_USERNAME=${SOCKS_USERNAME}
       - SOCKS_PASSWORD=${SOCKS_PASSWORD}
