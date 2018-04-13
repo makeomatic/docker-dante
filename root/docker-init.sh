@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+set -e
 
 : "${SOCKS_USERNAME:?Need to set SOCKS_USERNAME non-empty}"
 : "${SOCKS_PASSWORD:?Need to set SOCKS_PASSWORD non-empty}"

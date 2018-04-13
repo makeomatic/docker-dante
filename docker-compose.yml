@@ -3,11 +3,8 @@ version: '3'
 services:
   dante:
     build: './'
+    network_mode: host
     image: makeomatic/dante
-    ports:
-      - "9849:1080"
-    volumes:
-      - ./root/etc/sockd.conf:/etc/sockd.conf
     environment:
       - SOCKS_USERNAME=${SOCKS_USERNAME}
       - SOCKS_PASSWORD=${SOCKS_PASSWORD}
