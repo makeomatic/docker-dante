@@ -8,7 +8,7 @@ services:
       - "1080:1080"
       - "4024-4048:4024-4048/udp"
     volumes:
-      - ./configs/9080.conf:/etc/sockd.conf
+      - ./configs/1080.conf:/etc/sockd.conf
     environment:
       - SOCKS_USERNAME=${SOCKS_USERNAME}
       - SOCKS_PASSWORD=${SOCKS_PASSWORD}
