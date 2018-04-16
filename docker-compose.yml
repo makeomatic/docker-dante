@@ -6,12 +6,32 @@ services:
     image: makeomatic/dante
     ports:
       - "1080:1080"
-      - "4024-4048:4024-4048"
       - "4024-4048:4024-4048/udp"
+    volumes:
+      - ./configs/9080.conf:/etc/sockd.conf
     environment:
       - SOCKS_USERNAME=${SOCKS_USERNAME}
       - SOCKS_PASSWORD=${SOCKS_PASSWORD}
-      - WORKERS=${WORKERS:-10}
+      - WORKERS=${WORKERS:-20}
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "10"
+
+  dante_2:
+    build: './'
+    image: makeomatic/dante
+    ports:
+      - "9080:9080"
+      - "4049-4073:4049-4073/udp"
+    volumes:
+      - ./configs/9080.conf:/etc/sockd.conf
+    environment:
+      - SOCKS_USERNAME=${SOCKS_USERNAME}
+      - SOCKS_PASSWORD=${SOCKS_PASSWORD}
+      - WORKERS=${WORKERS:-20}
     restart: always
     logging:
       driver: "json-file"
