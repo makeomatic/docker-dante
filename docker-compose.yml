@@ -8,7 +8,6 @@ services:
       - "1080:1080"
       - "4024-4048:4024-4048"
       - "4024-4048:4024-4048/udp"
-    network_mode: host
     environment:
       - SOCKS_USERNAME=${SOCKS_USERNAME}
       - SOCKS_PASSWORD=${SOCKS_PASSWORD}
