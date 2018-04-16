@@ -6,6 +6,7 @@ services:
     image: makeomatic/dante
     ports:
       - "1080:1080"
+      - "48128-49151:48128-49151/udp"
     environment:
       - SOCKS_USERNAME=${SOCKS_USERNAME}
       - SOCKS_PASSWORD=${SOCKS_PASSWORD}
