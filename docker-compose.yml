@@ -1,9 +1,16 @@
-version: '3'
+version: '2.4'
+
+networks:
+  app_net:
+    driver: bridge
+    enable_ipv6: true
 
 services:
   dante:
     build: './'
     image: makeomatic/dante
+    networks:
+      app_net:
     ports:
       - "1080:1080"
       - "4024-4048:4024-4048/udp"
@@ -23,6 +30,8 @@ services:
   dante_2:
     build: './'
     image: makeomatic/dante
+    networks:
+      app_net:
     ports:
       - "9080:9080"
       - "4049-4073:4049-4073/udp"
